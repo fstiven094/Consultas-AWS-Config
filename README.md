@@ -4,30 +4,23 @@
 # Consulta S3
 ```bash
 SELECT
+  accountId,
+  awsRegion,
+  arn,
   configurationItemCaptureTime,
-  complianceType,
-  complianceState,
-  complianceContributorCount,
   configurationStateId,
-  configurationStateMd5Hash,
-  configurationItemVersion,
   configuration,
   configurationItemStatus,
-  arn,
-  accountId,
   resourceId,
   resourceName,
-  awsRegion,
   tags,
   resourceType,
   resourceCreationTime,
-  relatedEvents,
-  relationships,
   supplementaryConfiguration.ServerSideEncryptionConfiguration.rules,
   supplementaryConfiguration.ServerSideEncryptionConfiguration.rules.applyServerSideEncryptionByDefault.sseAlgorithm
 WHERE
-  resourceType = 'AWS::S3::Bucket' AND
-  supplementaryConfiguration.ServerSideEncryptionConfiguration.rules.applyServerSideEncryptionByDefault.sseAlgorithm != 'aws:kms'
+  resourceType = 'AWS::S3::Bucket'
+  AND supplementaryConfiguration.ServerSideEncryptionConfiguration.rules.applyServerSideEncryptionByDefault.sseAlgorithm != 'aws:kms'
 ```
 
 # Consulta grupos de seguridad y configuración de puertos
