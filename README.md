@@ -2,7 +2,7 @@
 
 
 # Consulta S3
-
+```bash
 SELECT
   configurationItemCaptureTime,
   complianceType,
@@ -28,10 +28,10 @@ SELECT
 WHERE
   resourceType = 'AWS::S3::Bucket' AND
   supplementaryConfiguration.ServerSideEncryptionConfiguration.rules.applyServerSideEncryptionByDefault.sseAlgorithm != 'aws:kms'
-
+```
 
 # Consulta grupos de seguridad y configuración de puertos
-
+```bash
 SELECT
   configurationItemCaptureTime,
   complianceType,
@@ -58,10 +58,10 @@ SELECT
   configuration.ipPermissions.toPort
 WHERE
   resourceType = 'AWS::EC2::SecurityGroup'
-
+```
 
 # Instancias EC2
-
+```bash
 SELECT
   configurationItemCaptureTime,
   complianceType,
@@ -92,5 +92,5 @@ SELECT
   configuration.securityGroups
 WHERE
   resourceType = 'AWS::EC2::Instance'
-
+```
 
